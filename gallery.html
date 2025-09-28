@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Adrian Buba</title>
+    <meta name="description" content="Gallery of artworks by Adrian Buba - Contemporary abstract and figurative paintings">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'scale-in': 'scaleIn 0.3s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.95)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .nav-transparent { backdrop-filter: blur(10px); }
+        .masonry-grid {
+            column-count: 3;
+            column-gap: 1.5rem;
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+        @media (max-width: 1024px) {
+            .masonry-grid { column-count: 2; }
+        }
+        @media (max-width: 640px) {
+            .masonry-grid { column-count: 1; }
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            animation: fadeIn 0.3s;
+        }
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            animation: scaleIn 0.3s;
+        }
+        .filter-btn.active {
+            background-color: #111827;
+            color: white;
+        }
+    </style>
+</head>
+<body class="font-inter bg-white text-gray-900">
+
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-transparent bg-white/90">
+        <div class="container mx-auto px-6 py-6">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="font-playfair text-2xl font-medium tracking-wide">Adrian Buba</a>
+
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Home</a>
+                    <a href="biography.html" class="text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Biography</a>
+                    <a href="gallery.html" class="text-sm uppercase tracking-widest hover:text-gray-600 transition-colors font-semibold">Gallery</a>
+                    <a href="exhibitions.html" class="text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Exhibitions</a>
+                    <a href="contact.html" class="text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Contact</a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden mt-6 pb-4 border-t border-gray-200 pt-4">
+                <a href="index.html" class="block py-2 text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Home</a>
+                <a href="biography.html" class="block py-2 text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Biography</a>
+                <a href="gallery.html" class="block py-2 text-sm uppercase tracking-widest hover:text-gray-600 transition-colors font-semibold">Gallery</a>
+                <a href="exhibitions.html" class="block py-2 text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Exhibitions</a>
+                <a href="contact.html" class="block py-2 text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-8 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <h1 class="font-playfair text-5xl md:text-6xl text-center mb-4 animate-fade-in">Gallery</h1>
+            <p class="text-center text-gray-600 uppercase tracking-widest text-sm mb-12">Exploring the Boundary</p>
+
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="filter-btn active px-6 py-2 border border-gray-900 text-sm uppercase tracking-widest transition-all" data-filter="all">
+                    All Works
+                </button>
+                <button class="filter-btn px-6 py-2 border border-gray-900 text-sm uppercase tracking-widest hover:bg-gray-900 hover:text-white transition-all" data-filter="abstract">
+                    Abstract
+                </button>
+                <button class="filter-btn px-6 py-2 border border-gray-900 text-sm uppercase tracking-widest hover:bg-gray-900 hover:text-white transition-all" data-filter="figurative">
+                    Figurative
+                </button>
+                <button class="filter-btn px-6 py-2 border border-gray-900 text-sm uppercase tracking-widest hover:bg-gray-900 hover:text-white transition-all" data-filter="recent">
+                    Recent
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="pb-24 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="masonry-grid" id="gallery-grid">
+                <div class="masonry-item gallery-item" data-category="abstract recent">
+                    <div class="group cursor-pointer overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1pBamdDzR11kfJjJgq4XJnX-D6Ovyd1twQZzeRwKJ7wiP5NbrTWuD4XBOZtIK-2cTjfEGX-6kZ7q1Y1-N3AvebOeIpM9eDNlDPt261sStyw92EDhrKAEzvWX2fwF4xGZ_Vr5NEgQbaOCT/s1600/3-Triptyque+Fantasia.jpg"
+                             alt="Triptyque Fantasia"
+                             class="w-full group-hover:scale-105 transition-transform duration-500"
+                             onclick="openLightbox(this)">
+                        <div class="p-4">
+                            <h3 class="font-playfair text-lg mb-1">Triptyque Fantasia</h3>
+                            <p class="text-sm text-gray-600">Acrylic on Canvas, 100x150 cm</p>
+                            <p class="text-sm text-gray-500 mt-2">2023</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item gallery-item" data-category="figurative">
+                    <div class="group cursor-pointer overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4atsGssA1RBZvvA6kMlSfB4SzX2vKdtLWrvsCXg0T0yYxtVE5b9fmY-wUXxccasXxbNuFshogHuvstpwcK9fH7-94dKIe6dEwpW7s9rwjpSWS70-aZNNGuPJM2eRpVYcJ9xSuX0CKFtzq/s1600/4-La+Moto.jpg"
+                             alt="La Moto"
+                             class="w-full group-hover:scale-105 transition-transform duration-500"
+                             onclick="openLightbox(this)">
+                        <div class="p-4">
+                            <h3 class="font-playfair text-lg mb-1">La Moto</h3>
+                            <p class="text-sm text-gray-600">Acrylic on Canvas, 80x100 cm</p>
+                            <p class="text-sm text-gray-500 mt-2">2022</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item gallery-item" data-category="abstract">
+                    <div class="group cursor-pointer overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1pBamdDzR11kfJjJgq4XJnX-D6Ovyd1twQZzeRwKJ7wiP5NbrTWuD4XBOZtIK-2cTjfEGX-6kZ7q1Y1-N3AvebOeIpM9eDNlDPt261sStyw92EDhrKAEzvWX2fwF4xGZ_Vr5NEgQbaOCT/s1600/3-Triptyque+Fantasia.jpg"
+                             alt="Nocturne"
+                             class="w-full group-hover:scale-105 transition-transform duration-500"
+                             onclick="openLightbox(this)">
+                        <div class="p-4">
+                            <h3 class="font-playfair text-lg mb-1">Nocturne</h3>
+                            <p class="text-sm text-gray-600">Acrylic on Canvas, 60x80 cm</p>
+                            <p class="text-sm text-gray-500 mt-2">2021</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item gallery-item" data-category="abstract recent">
+                    <div class="group cursor-pointer overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4atsGssA1RBZvvA6kMlSfB4SzX2vKdtLWrvsCXg0T0yYxtVE5b9fmY-wUXxccasXxbNuFshogHuvstpwcK9fH7-94dKIe6dEwpW7s9rwjpSWS70-aZNNGuPJM2eRpVYcJ9xSuX0CKFtzq/s1600/4-La+Moto.jpg"
+                             alt="Opening"
+                             class="w-full group-hover:scale-105 transition-transform duration-500"
+                             onclick="openLightbox(this)">
+                        <div class="p-4">
+                            <h3 class="font-playfair text-lg mb-1">Opening</h3>
+                            <p class="text-sm text-gray-600">Acrylic on Canvas, 60x60 cm</p>
+                            <p class="text-sm text-gray-500 mt-2">2023</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item gallery-item" data-category="figurative">
+                    <div class="group cursor-pointer overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1pBamdDzR11kfJjJgq4XJnX-D6Ovyd1twQZzeRwKJ7wiP5NbrTWuD4XBOZtIK-2cTjfEGX-6kZ7q1Y1-N3AvebOeIpM9eDNlDPt261sStyw92EDhrKAEzvWX2fwF4xGZ_Vr5NEgQbaOCT/s1600/3-Triptyque+Fantasia.jpg"
+                             alt="Cavaliers"
+                             class="w-full group-hover:scale-105 transition-transform duration-500"
+                             onclick="openLightbox(this)">
+                        <div class="p-4">
+                            <h3 class="font-playfair text-lg mb-1">Cavaliers</h3>
+                            <p class="text-sm text-gray-600">Acrylic on Canvas, 100x120 cm</p>
+                            <p class="text-sm text-gray-500 mt-2">2022</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item gallery-item" data-category="abstract">
+                    <div class="group cursor-pointer overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4atsGssA1RBZvvA6kMlSfB4SzX2vKdtLWrvsCXg0T0yYxtVE5b9fmY-wUXxccasXxbNuFshogHuvstpwcK9fH7-94dKIe6dEwpW7s9rwjpSWS70-aZNNGuPJM2eRpVYcJ9xSuX0CKFtzq/s1600/4-La+Moto.jpg"
+                             alt="Magma"
+                             class="w-full group-hover:scale-105 transition-transform duration-500"
+                             onclick="openLightbox(this)">
+                        <div class="p-4">
+                            <h3 class="font-playfair text-lg mb-1">Magma</h3>
+                            <p class="text-sm text-gray-600">Acrylic on Canvas, 90x90 cm</p>
+                            <p class="text-sm text-gray-500 mt-2">2021</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item gallery-item" data-category="figurative recent">
+                    <div class="group cursor-pointer overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1pBamdDzR11kfJjJgq4XJnX-D6Ovyd1twQZzeRwKJ7wiP5NbrTWuD4XBOZtIK-2cTjfEGX-6kZ7q1Y1-N3AvebOeIpM9eDNlDPt261sStyw92EDhrKAEzvWX2fwF4xGZ_Vr5NEgQbaOCT/s1600/3-Triptyque+Fantasia.jpg"
+                             alt="Flamenco"
+                             class="w-full group-hover:scale-105 transition-transform duration-500"
+                             onclick="openLightbox(this)">
+                        <div class="p-4">
+                            <h3 class="font-playfair text-lg mb-1">Flamenco</h3>
+                            <p class="text-sm text-gray-600">Acrylic on Canvas, 80x100 cm</p>
+                            <p class="text-sm text-gray-500 mt-2">2023</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item gallery-item" data-category="abstract recent">
+                    <div class="group cursor-pointer overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4atsGssA1RBZvvA6kMlSfB4SzX2vKdtLWrvsCXg0T0yYxtVE5b9fmY-wUXxccasXxbNuFshogHuvstpwcK9fH7-94dKIe6dEwpW7s9rwjpSWS70-aZNNGuPJM2eRpVYcJ9xSuX0CKFtzq/s1600/4-La+Moto.jpg"
+                             alt="Notre Dame"
+                             class="w-full group-hover:scale-105 transition-transform duration-500"
+                             onclick="openLightbox(this)">
+                        <div class="p-4">
+                            <h3 class="font-playfair text-lg mb-1">Notre Dame</h3>
+                            <p class="text-sm text-gray-600">Acrylic on Canvas, 100x100 cm</p>
+                            <p class="text-sm text-gray-500 mt-2">2023</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item gallery-item" data-category="figurative">
+                    <div class="group cursor-pointer overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1pBamdDzR11kfJjJgq4XJnX-D6Ovyd1twQZzeRwKJ7wiP5NbrTWuD4XBOZtIK-2cTjfEGX-6kZ7q1Y1-N3AvebOeIpM9eDNlDPt261sStyw92EDhrKAEzvWX2fwF4xGZ_Vr5NEgQbaOCT/s1600/3-Triptyque+Fantasia.jpg"
+                             alt="Guerrier"
+                             class="w-full group-hover:scale-105 transition-transform duration-500"
+                             onclick="openLightbox(this)">
+                        <div class="p-4">
+                            <h3 class="font-playfair text-lg mb-1">Guerrier</h3>
+                            <p class="text-sm text-gray-600">Acrylic on Canvas, 120x100 cm</p>
+                            <p class="text-sm text-gray-500 mt-2">2022</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item gallery-item" data-category="abstract">
+                    <div class="group cursor-pointer overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4atsGssA1RBZvvA6kMlSfB4SzX2vKdtLWrvsCXg0T0yYxtVE5b9fmY-wUXxccasXxbNuFshogHuvstpwcK9fH7-94dKIe6dEwpW7s9rwjpSWS70-aZNNGuPJM2eRpVYcJ9xSuX0CKFtzq/s1600/4-La+Moto.jpg"
+                             alt="Louisiane"
+                             class="w-full group-hover:scale-105 transition-transform duration-500"
+                             onclick="openLightbox(this)">
+                        <div class="p-4">
+                            <h3 class="font-playfair text-lg mb-1">Louisiane</h3>
+                            <p class="text-sm text-gray-600">Acrylic on Canvas, 70x90 cm</p>
+                            <p class="text-sm text-gray-500 mt-2">2021</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item gallery-item" data-category="abstract recent">
+                    <div class="group cursor-pointer overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1pBamdDzR11kfJjJgq4XJnX-D6Ovyd1twQZzeRwKJ7wiP5NbrTWuD4XBOZtIK-2cTjfEGX-6kZ7q1Y1-N3AvebOeIpM9eDNlDPt261sStyw92EDhrKAEzvWX2fwF4xGZ_Vr5NEgQbaOCT/s1600/3-Triptyque+Fantasia.jpg"
+                             alt="Apparition"
+                             class="w-full group-hover:scale-105 transition-transform duration-500"
+                             onclick="openLightbox(this)">
+                        <div class="p-4">
+                            <h3 class="font-playfair text-lg mb-1">Apparition</h3>
+                            <p class="text-sm text-gray-600">Acrylic on Canvas, 80x80 cm</p>
+                            <p class="text-sm text-gray-500 mt-2">2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+        <button class="absolute top-8 right-8 text-white text-4xl hover:text-gray-300" onclick="closeLightbox(event)">&times;</button>
+        <img id="lightbox-img" class="lightbox-content" src="" alt="">
+    </div>
+
+    <footer class="bg-gray-900 text-white py-12 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-playfair text-2xl mb-4">Adrian Buba</h3>
+                    <p class="text-gray-400 text-sm">Contemporary artist exploring the boundary between abstraction and figuration.</p>
+                </div>
+
+                <div>
+                    <h4 class="uppercase tracking-widest text-sm mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="biography.html" class="text-gray-400 hover:text-white text-sm transition-colors">Biography</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-white text-sm transition-colors">Gallery</a></li>
+                        <li><a href="exhibitions.html" class="text-gray-400 hover:text-white text-sm transition-colors">Exhibitions</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white text-sm transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="uppercase tracking-widest text-sm mb-4">Contact</h4>
+                    <p class="text-gray-400 text-sm">For inquiries about artwork and exhibitions</p>
+                    <a href="contact.html" class="text-gray-400 hover:text-white text-sm transition-colors">Get in Touch →</a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400 text-sm">© 2024 Adrian Buba. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/95', 'shadow-md');
+            } else {
+                navbar.classList.remove('bg-white/95', 'shadow-md');
+            }
+        });
+
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+                const filter = this.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filter === 'all') {
+                        item.style.display = 'block';
+                    } else {
+                        const categories = item.getAttribute('data-category').split(' ');
+                        if (categories.includes(filter)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    }
+                    item.classList.add('animate-fade-in');
+                });
+            });
+        });
+
+        function openLightbox(img) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightbox.classList.add('active');
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(event) {
+            if (event.target.id === 'lightbox' || event.target.tagName === 'BUTTON') {
+                const lightbox = document.getElementById('lightbox');
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const lightbox = document.getElementById('lightbox');
+                if (lightbox.classList.contains('active')) {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

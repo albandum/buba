@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biography - Adrian Buba</title>
+    <meta name="description" content="Biography of Adrian Buba - Romanian-French contemporary artist, Prix d'Art Sacré recipient">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out',
+                        'slide-in-right': 'slideInRight 0.8s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideInLeft: {
+                            '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideInRight: {
+                            '0%': { transform: 'translateX(20px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .nav-transparent { backdrop-filter: blur(10px); }
+        .timeline-dot {
+            position: relative;
+        }
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: #e5e7eb;
+            top: 24px;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .timeline-item:last-child .timeline-dot::before {
+            display: none;
+        }
+        .timeline-active::before {
+            background: #111827 !important;
+        }
+    </style>
+</head>
+<body class="font-inter bg-white text-gray-900">
+
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-transparent bg-white/90">
+        <div class="container mx-auto px-6 py-6">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="font-playfair text-2xl font-medium tracking-wide">Adrian Buba</a>
+
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Home</a>
+                    <a href="biography.html" class="text-sm uppercase tracking-widest hover:text-gray-600 transition-colors font-semibold">Biography</a>
+                    <a href="gallery.html" class="text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Gallery</a>
+                    <a href="exhibitions.html" class="text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Exhibitions</a>
+                    <a href="contact.html" class="text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Contact</a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden mt-6 pb-4 border-t border-gray-200 pt-4">
+                <a href="index.html" class="block py-2 text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Home</a>
+                <a href="biography.html" class="block py-2 text-sm uppercase tracking-widest hover:text-gray-600 transition-colors font-semibold">Biography</a>
+                <a href="gallery.html" class="block py-2 text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Gallery</a>
+                <a href="exhibitions.html" class="block py-2 text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Exhibitions</a>
+                <a href="contact.html" class="block py-2 text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-16 px-6">
+        <div class="container mx-auto max-w-4xl animate-fade-in">
+            <h1 class="font-playfair text-5xl md:text-6xl text-center mb-4">Biography</h1>
+            <p class="text-center text-gray-600 uppercase tracking-widest text-sm">Journey of an Artist</p>
+        </div>
+    </section>
+
+    <section class="py-16 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-3 gap-12 items-start">
+                <div class="md:col-span-2">
+                    <div class="prose prose-lg max-w-none animate-slide-up">
+                        <p class="text-xl leading-relaxed text-gray-700 font-light mb-8">
+                            Adrian Buba's artistic journey began in the heart of Transylvania, where the dramatic landscapes and rich cultural heritage of Romania would forever shape his creative vision. Born on June 8, 1953, in Caransebeș, Buba emerged as a singular voice in contemporary art, masterfully navigating the space between abstraction and figuration.
+                        </p>
+
+                        <blockquote class="border-l-4 border-gray-900 pl-6 my-12 italic text-2xl font-playfair text-gray-700">
+                            "Adrian Buba reconciles a certain figurative appearance with the free benefits of abstract art."
+                            <cite class="block text-base not-italic mt-4 text-gray-600">— René Huyghe, Art Historian</cite>
+                        </blockquote>
+
+                        <p class="text-gray-700 leading-relaxed mb-8">
+                            After graduating at the top of his class from the National University of Art in Bucharest in 1976, Buba spent four formative years as a conservator at the National Art Museum of Romania. This intimate engagement with the masters of Romanian art provided him with a deep understanding of artistic tradition while nurturing his desire to forge a unique contemporary path.
+                        </p>
+
+                        <p class="text-gray-700 leading-relaxed mb-8">
+                            The pivotal moment came in 1980 when Buba left Romania for Germany, eventually settling in Paris in 1981. This transition marked not just a geographical shift but an artistic metamorphosis. In Paris, the epicenter of modern art, Buba found the freedom to fully explore his distinctive style—one that would earn him international recognition and placement in prestigious collections worldwide.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="md:sticky md:top-32">
+                    <div class="animate-fade-in">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Adrian_Buba_selfportrait.jpg"
+                             alt="Adrian Buba - Self Portrait"
+                             class="w-full shadow-xl mb-4">
+                        <p class="text-sm text-gray-600 italic text-center">Self Portrait</p>
+                    </div>
+
+                    <div class="mt-8 p-6 bg-gray-50">
+                        <h3 class="font-playfair text-xl mb-4">Quick Facts</h3>
+                        <dl class="space-y-3 text-sm">
+                            <div>
+                                <dt class="font-semibold text-gray-900">Born</dt>
+                                <dd class="text-gray-600">June 8, 1953, Caransebeș, Romania</dd>
+                            </div>
+                            <div>
+                                <dt class="font-semibold text-gray-900">Nationality</dt>
+                                <dd class="text-gray-600">French & Romanian</dd>
+                            </div>
+                            <div>
+                                <dt class="font-semibold text-gray-900">Education</dt>
+                                <dd class="text-gray-600">National University of Art, Bucharest</dd>
+                            </div>
+                            <div>
+                                <dt class="font-semibold text-gray-900">Based In</dt>
+                                <dd class="text-gray-600">Paris, France</dd>
+                            </div>
+                            <div>
+                                <dt class="font-semibold text-gray-900">Style</dt>
+                                <dd class="text-gray-600">Abstract Expressionism, Contemporary</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-6 bg-gray-50">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="font-playfair text-4xl text-center mb-16">Career Timeline</h2>
+
+            <div class="grid md:grid-cols-2 gap-x-12 gap-y-8">
+                <div class="timeline-item animate-slide-in-left">
+                    <div class="flex items-start">
+                        <div class="timeline-dot flex-shrink-0 w-12 h-12 bg-gray-900 text-white rounded-full flex items-center justify-center font-playfair timeline-active">
+                            1953
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="font-playfair text-xl mb-2">Birth in Transylvania</h3>
+                            <p class="text-gray-600">Born June 8 in Caransebeș, Romania, in the heart of Transylvania's dramatic landscape.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-slide-in-right">
+                    <div class="flex items-start">
+                        <div class="timeline-dot flex-shrink-0 w-12 h-12 bg-white border-2 border-gray-900 text-gray-900 rounded-full flex items-center justify-center font-playfair">
+                            1976
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="font-playfair text-xl mb-2">Academic Excellence</h3>
+                            <p class="text-gray-600">Graduated top of class from the National University of Art in Bucharest. Began work as conservator at the National Art Museum of Romania.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-slide-in-left">
+                    <div class="flex items-start">
+                        <div class="timeline-dot flex-shrink-0 w-12 h-12 bg-white border-2 border-gray-900 text-gray-900 rounded-full flex items-center justify-center font-playfair">
+                            1979
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="font-playfair text-xl mb-2">National Recognition</h3>
+                            <p class="text-gray-600">Received the prestigious Romanian National Painting Prize, establishing himself as a leading figure in Romanian contemporary art.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-slide-in-right">
+                    <div class="flex items-start">
+                        <div class="timeline-dot flex-shrink-0 w-12 h-12 bg-white border-2 border-gray-900 text-gray-900 rounded-full flex items-center justify-center font-playfair">
+                            1981
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="font-playfair text-xl mb-2">Paris Migration</h3>
+                            <p class="text-gray-600">Settled in Paris after leaving Romania via Germany. Co-founded the artistic collective "Die Gruppe".</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-slide-in-left">
+                    <div class="flex items-start">
+                        <div class="timeline-dot flex-shrink-0 w-12 h-12 bg-white border-2 border-gray-900 text-gray-900 rounded-full flex items-center justify-center font-playfair">
+                            1982
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="font-playfair text-xl mb-2">Cité Internationale des Arts</h3>
+                            <p class="text-gray-600">Major exhibition at the prestigious Cité internationale des arts in Paris, marking his arrival on the international art scene.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-slide-in-right">
+                    <div class="flex items-start">
+                        <div class="timeline-dot flex-shrink-0 w-12 h-12 bg-white border-2 border-gray-900 text-gray-900 rounded-full flex items-center justify-center font-playfair">
+                            1983
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="font-playfair text-xl mb-2">Prix d'Art Sacré</h3>
+                            <p class="text-gray-600">Awarded the Prix d'Art Sacré at the Monte-Carlo International Contemporary Art Prize.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-slide-in-left">
+                    <div class="flex items-start">
+                        <div class="timeline-dot flex-shrink-0 w-12 h-12 bg-white border-2 border-gray-900 text-gray-900 rounded-full flex items-center justify-center font-playfair">
+                            1984
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="font-playfair text-xl mb-2">French Citizenship</h3>
+                            <p class="text-gray-600">Became a French citizen, solidifying his position in the Parisian art world.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-slide-in-right">
+                    <div class="flex items-start">
+                        <div class="timeline-dot flex-shrink-0 w-12 h-12 bg-white border-2 border-gray-900 text-gray-900 rounded-full flex items-center justify-center font-playfair">
+                            2014
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="font-playfair text-xl mb-2">Asian Expansion</h3>
+                            <p class="text-gray-600">Exhibition at Ningbo Museum of Art in China, marking significant expansion into Asian art markets.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="font-playfair text-4xl text-center mb-16">Collections & Recognition</h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center animate-slide-up">
+                    <div class="mb-6">
+                        <svg class="w-16 h-16 mx-auto text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 3v13a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-2xl mb-4">Public Collections</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>National Contemporary Art Fund (CNAP), France</li>
+                        <li>National Art Museum of Romania</li>
+                        <li>Ningbo Museum of Art, China</li>
+                    </ul>
+                </div>
+
+                <div class="text-center animate-slide-up" style="animation-delay: 0.1s">
+                    <div class="mb-6">
+                        <svg class="w-16 h-16 mx-auto text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-2xl mb-4">Awards</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>Romanian National Painting Prize (1979)</li>
+                        <li>Prix d'Art Sacré, Monte-Carlo (1983)</li>
+                        <li>International Contemporary Art Prize</li>
+                    </ul>
+                </div>
+
+                <div class="text-center animate-slide-up" style="animation-delay: 0.2s">
+                    <div class="mb-6">
+                        <svg class="w-16 h-16 mx-auto text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-2xl mb-4">International Presence</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>Exhibitions in 15+ countries</li>
+                        <li>Private collections worldwide</li>
+                        <li>Gallery representation in Paris, Berlin, New York</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-playfair text-2xl mb-4">Adrian Buba</h3>
+                    <p class="text-gray-400 text-sm">Contemporary artist exploring the boundary between abstraction and figuration.</p>
+                </div>
+
+                <div>
+                    <h4 class="uppercase tracking-widest text-sm mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="biography.html" class="text-gray-400 hover:text-white text-sm transition-colors">Biography</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-white text-sm transition-colors">Gallery</a></li>
+                        <li><a href="exhibitions.html" class="text-gray-400 hover:text-white text-sm transition-colors">Exhibitions</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white text-sm transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="uppercase tracking-widest text-sm mb-4">Contact</h4>
+                    <p class="text-gray-400 text-sm">For inquiries about artwork and exhibitions</p>
+                    <a href="contact.html" class="text-gray-400 hover:text-white text-sm transition-colors">Get in Touch →</a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400 text-sm">© 2024 Adrian Buba. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/95', 'shadow-md');
+            } else {
+                navbar.classList.remove('bg-white/95', 'shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
