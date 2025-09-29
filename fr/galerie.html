@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - Adrian Buba</title>
-    <meta name="description" content="Gallery of artworks by Adrian Buba - Contemporary abstract and figurative paintings">
+    <title>Galerie - Adrian Buba</title>
+    <meta name="description" content="Galerie d'œuvres d'Adrian Buba - Peintures abstraites et figuratives contemporaines">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,15 +89,14 @@
                 <a href="index.html" class="font-playfair text-2xl font-medium tracking-wide">Adrian Buba</a>
 
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Home</a>
-                    <a href="biography.html" class="text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Biography</a>
-                    <a href="gallery.html" class="text-sm uppercase tracking-widest hover:text-gray-600 transition-colors font-semibold">Gallery</a>
-                    <a href="exhibitions.html" class="text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Exhibitions</a>
+                    <a href="index.html" class="text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Accueil</a>
+                    <a href="biographie.html" class="text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Biographie</a>
+                    <a href="galerie.html" class="text-sm uppercase tracking-widest hover:text-gray-600 transition-colors font-semibold">Galerie</a>
+                    <a href="expositions.html" class="text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Expositions</a>
                     <a href="contact.html" class="text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Contact</a>
-                    <div class="border-l border-gray-300 h-5 mx-4"></div>
-                    <a href="fr/galerie.html" class="text-sm hover:text-gray-600 transition-colors flex items-center">
-                        <span class="mr-1">🇫🇷</span> FR
-                    </a>
+                    <div class="ml-4 pl-4 border-l border-gray-300">
+                        <a href="../gallery.html" class="text-xs uppercase tracking-widest text-gray-500 hover:text-gray-700 transition-colors">EN</a>
+                    </div>
                 </div>
 
                 <button id="mobile-menu-btn" class="md:hidden">
@@ -108,13 +107,13 @@
             </div>
 
             <div id="mobile-menu" class="hidden md:hidden mt-6 pb-4 border-t border-gray-200 pt-4">
-                <a href="index.html" class="block py-2 text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Home</a>
-                <a href="biography.html" class="block py-2 text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Biography</a>
-                <a href="gallery.html" class="block py-2 text-sm uppercase tracking-widest hover:text-gray-600 transition-colors font-semibold">Gallery</a>
-                <a href="exhibitions.html" class="block py-2 text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Exhibitions</a>
+                <a href="index.html" class="block py-2 text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Accueil</a>
+                <a href="biographie.html" class="block py-2 text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Biographie</a>
+                <a href="galerie.html" class="block py-2 text-sm uppercase tracking-widest hover:text-gray-600 transition-colors font-semibold">Galerie</a>
+                <a href="expositions.html" class="block py-2 text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Expositions</a>
                 <a href="contact.html" class="block py-2 text-sm uppercase tracking-widest hover:text-gray-600 transition-colors">Contact</a>
-                <div class="border-t border-gray-200 mt-4 pt-4">
-                    <a href="fr/galerie.html" class="block py-2 text-sm hover:text-gray-600 transition-colors">🇫🇷 Français</a>
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                    <a href="../gallery.html" class="block py-2 text-xs uppercase tracking-widest text-gray-500 hover:text-gray-700 transition-colors">EN</a>
                 </div>
             </div>
         </div>
@@ -122,21 +121,21 @@
 
     <section class="pt-32 pb-8 px-6">
         <div class="container mx-auto max-w-6xl">
-            <h1 class="font-playfair text-5xl md:text-6xl text-center mb-4 animate-fade-in">Gallery</h1>
-            <p class="text-center text-gray-600 uppercase tracking-widest text-sm mb-12">Exploring the Boundary</p>
+            <h1 class="font-playfair text-5xl md:text-6xl text-center mb-4 animate-fade-in">Galerie</h1>
+            <p class="text-center text-gray-600 uppercase tracking-widest text-sm mb-12">Explorer la Frontière</p>
 
             <div class="flex flex-wrap justify-center gap-4 mb-12">
                 <button class="filter-btn active px-6 py-2 border border-gray-900 text-sm uppercase tracking-widest transition-all" data-filter="all">
-                    All Works
+                    Toutes les Œuvres
                 </button>
                 <button class="filter-btn px-6 py-2 border border-gray-900 text-sm uppercase tracking-widest hover:bg-gray-900 hover:text-white transition-all" data-filter="abstract">
-                    Abstract
+                    Abstrait
                 </button>
                 <button class="filter-btn px-6 py-2 border border-gray-900 text-sm uppercase tracking-widest hover:bg-gray-900 hover:text-white transition-all" data-filter="figurative">
-                    Figurative
+                    Figuratif
                 </button>
                 <button class="filter-btn px-6 py-2 border border-gray-900 text-sm uppercase tracking-widest hover:bg-gray-900 hover:text-white transition-all" data-filter="recent">
-                    Recent
+                    Récent
                 </button>
             </div>
         </div>
@@ -153,7 +152,7 @@
                              onclick="openLightbox(this)">
                         <div class="p-4">
                             <h3 class="font-playfair text-lg mb-1">Triptyque Fantasia</h3>
-                            <p class="text-sm text-gray-600">Acrylic on Canvas, 100x150 cm</p>
+                            <p class="text-sm text-gray-600">Acrylique sur Toile, 100x150 cm</p>
                             <p class="text-sm text-gray-500 mt-2">2023</p>
                         </div>
                     </div>
@@ -167,7 +166,7 @@
                              onclick="openLightbox(this)">
                         <div class="p-4">
                             <h3 class="font-playfair text-lg mb-1">La Moto</h3>
-                            <p class="text-sm text-gray-600">Acrylic on Canvas, 80x100 cm</p>
+                            <p class="text-sm text-gray-600">Acrylique sur Toile, 80x100 cm</p>
                             <p class="text-sm text-gray-500 mt-2">2022</p>
                         </div>
                     </div>
@@ -181,7 +180,7 @@
                              onclick="openLightbox(this)">
                         <div class="p-4">
                             <h3 class="font-playfair text-lg mb-1">Nocturne</h3>
-                            <p class="text-sm text-gray-600">Acrylic on Canvas, 60x80 cm</p>
+                            <p class="text-sm text-gray-600">Acrylique sur Toile, 60x80 cm</p>
                             <p class="text-sm text-gray-500 mt-2">2021</p>
                         </div>
                     </div>
@@ -194,8 +193,8 @@
                              class="w-full group-hover:scale-105 transition-transform duration-500"
                              onclick="openLightbox(this)">
                         <div class="p-4">
-                            <h3 class="font-playfair text-lg mb-1">Opening</h3>
-                            <p class="text-sm text-gray-600">Acrylic on Canvas, 60x60 cm</p>
+                            <h3 class="font-playfair text-lg mb-1">Ouverture</h3>
+                            <p class="text-sm text-gray-600">Acrylique sur Toile, 60x60 cm</p>
                             <p class="text-sm text-gray-500 mt-2">2023</p>
                         </div>
                     </div>
@@ -209,7 +208,7 @@
                              onclick="openLightbox(this)">
                         <div class="p-4">
                             <h3 class="font-playfair text-lg mb-1">Cavaliers</h3>
-                            <p class="text-sm text-gray-600">Acrylic on Canvas, 100x120 cm</p>
+                            <p class="text-sm text-gray-600">Acrylique sur Toile, 100x120 cm</p>
                             <p class="text-sm text-gray-500 mt-2">2022</p>
                         </div>
                     </div>
@@ -223,7 +222,7 @@
                              onclick="openLightbox(this)">
                         <div class="p-4">
                             <h3 class="font-playfair text-lg mb-1">Magma</h3>
-                            <p class="text-sm text-gray-600">Acrylic on Canvas, 90x90 cm</p>
+                            <p class="text-sm text-gray-600">Acrylique sur Toile, 90x90 cm</p>
                             <p class="text-sm text-gray-500 mt-2">2021</p>
                         </div>
                     </div>
@@ -237,7 +236,7 @@
                              onclick="openLightbox(this)">
                         <div class="p-4">
                             <h3 class="font-playfair text-lg mb-1">Flamenco</h3>
-                            <p class="text-sm text-gray-600">Acrylic on Canvas, 80x100 cm</p>
+                            <p class="text-sm text-gray-600">Acrylique sur Toile, 80x100 cm</p>
                             <p class="text-sm text-gray-500 mt-2">2023</p>
                         </div>
                     </div>
@@ -251,7 +250,7 @@
                              onclick="openLightbox(this)">
                         <div class="p-4">
                             <h3 class="font-playfair text-lg mb-1">Notre Dame</h3>
-                            <p class="text-sm text-gray-600">Acrylic on Canvas, 100x100 cm</p>
+                            <p class="text-sm text-gray-600">Acrylique sur Toile, 100x100 cm</p>
                             <p class="text-sm text-gray-500 mt-2">2023</p>
                         </div>
                     </div>
@@ -265,7 +264,7 @@
                              onclick="openLightbox(this)">
                         <div class="p-4">
                             <h3 class="font-playfair text-lg mb-1">Guerrier</h3>
-                            <p class="text-sm text-gray-600">Acrylic on Canvas, 120x100 cm</p>
+                            <p class="text-sm text-gray-600">Acrylique sur Toile, 120x100 cm</p>
                             <p class="text-sm text-gray-500 mt-2">2022</p>
                         </div>
                     </div>
@@ -279,7 +278,7 @@
                              onclick="openLightbox(this)">
                         <div class="p-4">
                             <h3 class="font-playfair text-lg mb-1">Louisiane</h3>
-                            <p class="text-sm text-gray-600">Acrylic on Canvas, 70x90 cm</p>
+                            <p class="text-sm text-gray-600">Acrylique sur Toile, 70x90 cm</p>
                             <p class="text-sm text-gray-500 mt-2">2021</p>
                         </div>
                     </div>
@@ -293,7 +292,7 @@
                              onclick="openLightbox(this)">
                         <div class="p-4">
                             <h3 class="font-playfair text-lg mb-1">Apparition</h3>
-                            <p class="text-sm text-gray-600">Acrylic on Canvas, 80x80 cm</p>
+                            <p class="text-sm text-gray-600">Acrylique sur Toile, 80x80 cm</p>
                             <p class="text-sm text-gray-500 mt-2">2023</p>
                         </div>
                     </div>
@@ -312,28 +311,28 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div>
                     <h3 class="font-playfair text-2xl mb-4">Adrian Buba</h3>
-                    <p class="text-gray-400 text-sm">Contemporary artist exploring the boundary between abstraction and figuration.</p>
+                    <p class="text-gray-400 text-sm">Artiste contemporain explorant la frontière entre abstraction et figuration.</p>
                 </div>
 
                 <div>
-                    <h4 class="uppercase tracking-widest text-sm mb-4">Quick Links</h4>
+                    <h4 class="uppercase tracking-widest text-sm mb-4">Liens Rapides</h4>
                     <ul class="space-y-2">
-                        <li><a href="biography.html" class="text-gray-400 hover:text-white text-sm transition-colors">Biography</a></li>
-                        <li><a href="gallery.html" class="text-gray-400 hover:text-white text-sm transition-colors">Gallery</a></li>
-                        <li><a href="exhibitions.html" class="text-gray-400 hover:text-white text-sm transition-colors">Exhibitions</a></li>
+                        <li><a href="biographie.html" class="text-gray-400 hover:text-white text-sm transition-colors">Biographie</a></li>
+                        <li><a href="galerie.html" class="text-gray-400 hover:text-white text-sm transition-colors">Galerie</a></li>
+                        <li><a href="expositions.html" class="text-gray-400 hover:text-white text-sm transition-colors">Expositions</a></li>
                         <li><a href="contact.html" class="text-gray-400 hover:text-white text-sm transition-colors">Contact</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h4 class="uppercase tracking-widest text-sm mb-4">Contact</h4>
-                    <p class="text-gray-400 text-sm">For inquiries about artwork and exhibitions</p>
-                    <a href="contact.html" class="text-gray-400 hover:text-white text-sm transition-colors">Get in Touch →</a>
+                    <p class="text-gray-400 text-sm">Pour toute demande concernant les œuvres et expositions</p>
+                    <a href="contact.html" class="text-gray-400 hover:text-white text-sm transition-colors">Contactez-nous →</a>
                 </div>
             </div>
 
             <div class="border-t border-gray-800 mt-8 pt-8 text-center">
-                <p class="text-gray-400 text-sm">© 2024 Adrian Buba. All rights reserved.</p>
+                <p class="text-gray-400 text-sm">© 2024 Adrian Buba. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
