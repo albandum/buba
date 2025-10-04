@@ -178,24 +178,6 @@
                 navbar.classList.remove('bg-white/95', 'shadow-md');
             }
         });
-
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const formMessage = document.getElementById('form-message');
-            const messageText = formMessage.querySelector('p');
-
-            formMessage.classList.remove('hidden');
-            formMessage.classList.add('bg-green-50', 'border', 'border-green-200');
-            messageText.classList.add('text-green-700');
-            messageText.textContent = 'Merci pour votre message. Nous vous répondrons dans les 48 heures.';
-
-            this.reset();
-
-            setTimeout(() => {
-                formMessage.classList.add('hidden');
-            }, 5000);
-        });
     </script>
 </body>
 </html>
